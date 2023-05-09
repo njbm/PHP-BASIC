@@ -1,26 +1,9 @@
 <?php
 
-class Calculator{
-    public $number1 =0;     //properties/variable.
-    public $number2 =0;     //properties/variable.
 
-    public function Sum()   //method/function
-    {
-        return 'Result = '.$this->number1+ $this->number2;
-    }
-}
+//Example 1
 
-$object =new Calculator;    //Instance of Calculator Class
-$object->number1=5;
-$object->number2=20;        //object
-echo $object->sum();
-
-echo "<br><br><br>";
-
-
-//Example 2
-
-class Calculator2
+class Calculator
 {
     public $number1 = 0;     //properties/variable.
     public $number2 = 0;     //properties/variable.
@@ -48,38 +31,60 @@ class Calculator2
     }
 }
 
-$calculator =new Calculator2;
+$calculator =new Calculator;
 
-$calculator->setNumber1(10);
-$calculator->setNumber2(5);
+$number1 = $_POST['number1'];
+$number2 = $_POST['number2'];
+
+$calculator->setNumber1($number1);
+$calculator->setNumber2($number2);
 
 echo 'Calculate Result :  ' . $calculator->result();
+
+
+    if (isset($_POST["sum"])) {
+        // Create an instance of the Calculator class and call the sum() method
+       
+        $result = $calculator->sum();
+        
+        // Display the result in the HTML
+        echo "<p>$result</p>";
+    }
 
 ?>
 
 
-
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Basic oop</title>
+    <title>Calculator</title>
 </head>
 <body>
+    <h1>Calculator</h1>
+    <form action="" method="post">
+        <label for="number1">Number 1:</label>
+        <input type="number" id="number1" name="number1"><br><br>
+        <label for="number2">Number 2:</label>
+        <input type="number" id="number2" name="number2"><br><br>
+        <input type="submit" value="Calculate">
+    </form> <br><br>
+
     <form method="post">
         <table height="200" width="600" bgcolor="#00FF99" align="center">
             <tr>
                 <td>
-                    Enter The 1st Input Number:<input type="text" name="x" value="<?php print $_POST["x"]?>"/><br>
+                    Enter The 1st Input Number:<input type="text" name="number1" ><br>
 
                 </td>
             </tr>
             <tr>
                 <td>
-                    Enter The 2nd Input Number:<input type="text" name="y" value="<?php print $_POST["y"]?>"/><br>
+                    Enter The 2nd Input Number:<input type="text" name="number2" ><br>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <input type="submit" name="add" value="Add">
+                    <input type="submit" name="sum" value="Add">
 
                     <input type="submit" name="sub" value="SUB">
 
@@ -96,5 +101,3 @@ echo 'Calculate Result :  ' . $calculator->result();
     </form>
 </body>
 </html>
-
-
