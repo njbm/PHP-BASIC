@@ -35,9 +35,9 @@ class Calculator
     }
     public function printseries()
     {
-        for($print=1; $print<=$number1; $print++)
+        for($print=$this->number1; $print<=$this->number2; $print++)
         {
-            return "<br>".$print;
+            echo "<br>".$print;
         }
     }
 
@@ -47,21 +47,18 @@ class Calculator
     // }
 }
 
-$calculator =new Calculator;
-
-$number1 = $_POST['number1'];
-$number2 = $_POST['number2'];
-
-
-
-$calculator->setNumber1($number1);
-$calculator->setNumber2($number2);
-
 // echo 'Calculate Result :  ' . $calculator->result();
 
-// if ($_SERVER["REQUEST_METHOD"] == "POST")
-// {
-   
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    $calculator = new Calculator;
+
+    $number1 = $_POST['number1'];
+    $number2 = $_POST['number2'];
+
+    $calculator->setNumber1($number1);
+    $calculator->setNumber2($number2);
+
     if (isset($_POST["sum"])) 
     {
         $result ='Addition =  ' . $calculator->sum();
@@ -93,7 +90,7 @@ $calculator->setNumber2($number2);
         echo "<h1>$result</h1>";
     }
 
-// }
+}
 ?>
 
 
