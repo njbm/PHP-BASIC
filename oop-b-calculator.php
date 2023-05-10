@@ -31,6 +31,10 @@ class Calculator
     }
 }
 
+
+ if ($_SERVER['REQUEST_METHOD']=="POST")
+ {
+
 $calculator =new Calculator;
 
 $number1 = $_POST['number1'];
@@ -50,7 +54,7 @@ echo 'Calculate Result :  ' . $calculator->result();
         // Display the result in the HTML
         echo "<p>$result</p>";
     }
-
+}
 ?>
 
 
@@ -69,35 +73,5 @@ echo 'Calculate Result :  ' . $calculator->result();
         <input type="submit" value="Calculate">
     </form> <br><br>
 
-    <form method="post">
-        <table height="200" width="600" bgcolor="#00FF99" align="center">
-            <tr>
-                <td>
-                    Enter The 1st Input Number:<input type="text" name="number1" ><br>
-
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Enter The 2nd Input Number:<input type="text" name="number2" ><br>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="submit" name="sum" value="Add">
-
-                    <input type="submit" name="sub" value="SUB">
-
-                    <input type="submit" name="mul" value="MUL">
-
-                    <input type="submit" name="div" value="DIV">
-
-                    <input type="submit" name="large" value="LARGE">
-
-                    <input type="submit" name="print" value="Print123...n">
-                </td>
-            </tr>
-        </table>
-    </form>
 </body>
 </html>
